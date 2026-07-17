@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">网易云解码</string>
+    <string name="xposed_description">自动将网易云加密格式 ncm 解码为 mp3</string>
+</resources>

@@ -1,11 +1,14 @@
-package service;
+package charlottexiao.ncm2mp3.service;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import charlottexiao.ncm2mp3.mime.Mata;
+import charlottexiao.ncm2mp3.mime.Ncm;
+import charlottexiao.ncm2mp3.utils.AES;
+import charlottexiao.ncm2mp3.utils.CR4;
+import charlottexiao.ncm2mp3.utils.Utils;
 import com.alibaba.fastjson2.JSON;
 import de.robv.android.xposed.XposedBridge;
-import mime.Mata;
-import mime.Ncm;
 import org.jaudiotagger.audio.AudioFile;
 import org.jaudiotagger.audio.AudioFileIO;
 import org.jaudiotagger.audio.flac.metadatablock.MetadataBlockDataPicture;
@@ -13,9 +16,6 @@ import org.jaudiotagger.tag.FieldKey;
 import org.jaudiotagger.tag.Tag;
 import org.jaudiotagger.tag.images.Artwork;
 import org.jaudiotagger.tag.images.ArtworkFactory;
-import utils.AES;
-import utils.CR4;
-import utils.Utils;
 
 import java.io.ByteArrayInputStream;
 import java.io.File;

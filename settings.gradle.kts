@@ -10,6 +10,12 @@ pluginManagement {
         mavenCentral()
         gradlePluginPortal()
     }
+    plugins {
+        kotlin("jvm") version "2.3.21"
+    }
+}
+plugins {
+    id("org.gradle.toolchains.foojay-resolver-convention") version "1.0.0"
 }
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
@@ -19,10 +25,10 @@ dependencyResolutionManagement {
         // Xposed API repository
         maven {
             url = uri("https://api.xposed.info/")
+
         }
+        maven(url = uri("https://jitpack.io"))
     }
 }
-
 rootProject.name = "网易云解码Lsposed模块"
 include(":app")
- 

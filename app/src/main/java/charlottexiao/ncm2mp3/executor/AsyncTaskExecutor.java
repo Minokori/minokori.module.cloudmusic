@@ -1,4 +1,4 @@
-package executor;
+package charlottexiao.ncm2mp3.executor;
 
 import com.alibaba.fastjson2.JSON;
 

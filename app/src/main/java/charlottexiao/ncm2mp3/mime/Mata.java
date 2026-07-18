@@ -1,4 +1,4 @@
-package mime;
+package charlottexiao.ncm2mp3.mime;
 
 /**
  * @author charlottexiao

@@ -1,4 +1,4 @@
-package utils;
+package charlottexiao.ncm2mp3.utils;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -69,7 +69,7 @@ public class Utils {
         }
     }
 
-    public static <V>  void waitForAllTask(Collection<Future<V>> futures, Predicate<V> predicateSuccess) {
+    public static <V> void waitForAllTask(Collection<Future<V>> futures, Predicate<V> predicateSuccess) {
         long startTime = System.nanoTime();
         int finishCnt = 0;
         int successCnt = 0;
@@ -88,7 +88,7 @@ public class Utils {
                 System.out.format("异步任务执行失败,异常： %s\n", e);
             }
         }
-        System.out.format("所有任务执行完成,任务总数： %s, 成功数量: %s, 失败数量: %s!总共耗时: %sms", finishCnt, successCnt, failCnt,TimeUnit.NANOSECONDS.toMillis(System.nanoTime() - startTime));
+        System.out.format("所有任务执行完成,任务总数： %s, 成功数量: %s, 失败数量: %s!总共耗时: %sms", finishCnt, successCnt, failCnt, TimeUnit.NANOSECONDS.toMillis(System.nanoTime() - startTime));
 
     }
 

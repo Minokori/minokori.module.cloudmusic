@@ -2,6 +2,7 @@ package minokori.module.cloudmusic
 
 
 import android.app.Application
+import android.os.Build.MODEL
 import de.robv.android.xposed.IXposedHookLoadPackage
 import de.robv.android.xposed.XposedHelpers
 import de.robv.android.xposed.callbacks.XC_LoadPackage
@@ -12,7 +13,16 @@ class Main : IXposedHookLoadPackage {
         // 寻找作用域
         if (!isCloudMusic(lpparam)) return
         val hook = MethodHook()
+
+
         XposedHelpers.findAndHookMethod(Application::class.java, "onCreate", hook)
+
+        // TODO release 删掉下面
+        // 在mumu模拟器上测试时注入 debughook
+        if (MODEL != "BVL-AN00") return
+        val debughook = DebugHook()
+        XposedHelpers.findAndHookMethod(Application::class.java, "onCreate", debughook)
+
 
     }
 

@@ -1,4 +1,4 @@
-package utils;
+package charlottexiao.ncm2mp3.utils;
 
 /**
  * @author charlottexiao

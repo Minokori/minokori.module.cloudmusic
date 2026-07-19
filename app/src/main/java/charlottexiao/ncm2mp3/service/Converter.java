@@ -8,14 +8,21 @@ import charlottexiao.ncm2mp3.utils.AES;
 import charlottexiao.ncm2mp3.utils.CR4;
 import charlottexiao.ncm2mp3.utils.Utils;
 import com.alibaba.fastjson2.JSON;
+import com.shabinder.jaudiotagger.audio.AudioFile;
+import com.shabinder.jaudiotagger.audio.AudioFileIO;
+import com.shabinder.jaudiotagger.audio.flac.metadatablock.MetadataBlockDataPicture;
+import com.shabinder.jaudiotagger.tag.FieldKey;
+import com.shabinder.jaudiotagger.tag.Tag;
+import com.shabinder.jaudiotagger.tag.images.Artwork;
+import com.shabinder.jaudiotagger.tag.images.ArtworkFactory;
 import de.robv.android.xposed.XposedBridge;
-import org.jaudiotagger.audio.AudioFile;
-import org.jaudiotagger.audio.AudioFileIO;
-import org.jaudiotagger.audio.flac.metadatablock.MetadataBlockDataPicture;
-import org.jaudiotagger.tag.FieldKey;
-import org.jaudiotagger.tag.Tag;
-import org.jaudiotagger.tag.images.Artwork;
-import org.jaudiotagger.tag.images.ArtworkFactory;
+//import org.jaudiotagger.audio.AudioFile;
+//import org.jaudiotagger.audio.AudioFileIO;
+//import org.jaudiotagger.audio.flac.metadatablock.MetadataBlockDataPicture;
+//import org.jaudiotagger.tag.FieldKey;
+//import org.jaudiotagger.tag.Tag;
+//import org.jaudiotagger.tag.images.Artwork;
+//import org.jaudiotagger.tag.images.ArtworkFactory;
 
 import java.io.ByteArrayInputStream;
 import java.io.File;
@@ -49,7 +56,11 @@ public class Converter {
             byte[] image = albumImage(inputStream);
             ncm.setImage(image);
             File ncmFile = new File(ncmFilePath);
-            outFilePath += File.separator + ncmFile.getName().substring(0, ncmFile.getName().length() - 3) + ncm.getMata().format;
+
+            if (!outFilePath.endsWith(File.separator)) {
+                outFilePath += File.separator;
+            }
+            outFilePath += ncmFile.getName().substring(0, ncmFile.getName().length() - 3) + ncm.getMata().format;
             ncm.setOutFile(outFilePath);
             FileOutputStream outputStream = new FileOutputStream(ncm.getOutFile());
             musicData(inputStream, outputStream, key);

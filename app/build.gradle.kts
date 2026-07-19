@@ -6,13 +6,11 @@ val appName = "minokori.module.cloudmusic"
 
 android {
     namespace = appName
-    compileSdk {
-        version = release(36)
-    }
+    compileSdk = 36
 
     defaultConfig {
         applicationId = appName
-        minSdk = 29
+        minSdk = 33
         targetSdk = 36
         versionCode = 2
         versionName = "1.1"
@@ -24,13 +22,12 @@ android {
         release {
             isMinifyEnabled = false
             proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
+                getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
+                         )
         }
 
     }
-    
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
@@ -43,7 +40,9 @@ dependencies {
     implementation(libs.material)
     //alibaba
     implementation("com.alibaba.fastjson2:fastjson2:2.0.61")
-    implementation("com.github.Adonai:jaudiotagger:2.3.14")
+    //implementation("com.github.Adonai:jaudiotagger:2.3.14")
+    //implementation("com.github.hexise:jaudiotagger-android")
+    implementation("com.github.Shabinder:JAudioTagger-Android:1.0")
     // LSposed API
     compileOnly("de.robv.android.xposed:api:82")
 
